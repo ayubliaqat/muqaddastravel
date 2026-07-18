@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { Playfair_Display, Inter } from 'next/font/google'
+import { Header } from '@/components/layout/Header'
+import { Footer } from '@/components/layout/Footer'
 import './styles.css'
 
 const playfairDisplay = Playfair_Display({
@@ -29,8 +31,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfairDisplay.variable} ${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-background text-primary font-body">
-        {children}
+      <body className="flex min-h-full flex-col bg-background text-primary font-body">
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   )
