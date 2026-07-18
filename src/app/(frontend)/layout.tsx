@@ -1,18 +1,36 @@
-import React from 'react'
+import type { Metadata } from 'next'
+import { Playfair_Display, Inter } from 'next/font/google'
 import './styles.css'
 
-export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
+const playfairDisplay = Playfair_Display({
+  variable: '--font-heading',
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  display: 'swap',
+})
+
+const inter = Inter({
+  variable: '--font-body',
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  display: 'swap',
+})
+
+export const metadata: Metadata = {
+  title: 'MuqaddasTravel | Hajj & Umrah Guides',
+  description:
+    'Authentic, well-researched Hajj and Umrah guides, checklists, duas and travel resources for pilgrims from the UK, USA, Canada and beyond.',
 }
 
-export default async function RootLayout(props: { children: React.ReactNode }) {
-  const { children } = props
-
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
   return (
-    <html lang="en">
-      <body>
-        <main>{children}</main>
+    <html lang="en" className={`${playfairDisplay.variable} ${inter.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-background text-primary font-body">
+        {children}
       </body>
     </html>
   )
