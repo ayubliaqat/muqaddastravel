@@ -7,97 +7,67 @@ import { useRef } from 'react'
 const posts = [
   {
     tag: 'Hajj',
-    title: 'A Complete Guide to Performing Hajj Step by Step',
-    excerpt: 'From Ihram to Tawaf al-Wida — everything you need to know before you go.',
+    heading: 'Hajj Guide',
     image: '/images/blog-hajj-guide.jpg',
-    date: 'Jul 18, 2026',
-    readTime: '8 min read',
     href: '/blog/hajj-step-by-step-guide',
   },
   {
     tag: 'Umrah',
-    title: 'How to Perform Umrah: A Beginner-Friendly Walkthrough',
-    excerpt: 'Learn the step-by-step process of Umrah with clear, trusted explanations.',
+    heading: 'Umrah Guide',
     image: '/images/blog-umrah-guide.jpg',
-    date: 'Jul 15, 2026',
-    readTime: '6 min read',
     href: '/blog/how-to-perform-umrah',
   },
   {
     tag: 'Planning',
-    title: 'Best Time to Perform Umrah This Year',
-    excerpt: 'Find the best months for a comfortable, less crowded journey.',
+    heading: 'Planning Guide',
     image: '/images/blog-best-time.jpg',
-    date: 'Jul 12, 2026',
-    readTime: '5 min read',
     href: '/blog/best-time-to-perform-umrah',
   },
   {
     tag: 'Preparation',
-    title: 'The Ultimate Umrah Packing List',
-    excerpt: 'Essential items you should never forget before departure.',
+    heading: 'Packing Guide',
     image: '/images/blog-packing-list.jpg',
-    date: 'Jul 9, 2026',
-    readTime: '4 min read',
     href: '/blog/umrah-packing-list',
   },
   {
     tag: 'Duas',
-    title: 'Essential Duas to Recite During Your Journey',
-    excerpt: 'A collection of duas for every stage, from departure to Tawaf.',
+    heading: 'Duas Guide',
     image: '/images/blog-duas.jpg',
-    date: 'Jul 6, 2026',
-    readTime: '7 min read',
     href: '/blog/essential-travel-duas',
   },
   {
     tag: 'Ziyarat',
-    title: 'Places to Visit in Madinah Beyond the Masjid',
-    excerpt: 'A guide to the historical and blessed sites around the Prophet’s Mosque.',
+    heading: 'Ziyarat Guide',
     image: '/images/blog-ziyarat.jpg',
-    date: 'Jul 3, 2026',
-    readTime: '6 min read',
     href: '/blog/madinah-ziyarat-sites',
   },
   {
     tag: 'Health',
-    title: 'Staying Healthy During Hajj: Tips From Doctors',
-    excerpt: 'Vaccinations, fitness, and precautions to take before you travel.',
+    heading: 'Health Guide',
     image: '/images/blog-health.jpg',
-    date: 'Jun 29, 2026',
-    readTime: '5 min read',
     href: '/blog/staying-healthy-during-hajj',
   },
   {
     tag: 'Etiquette',
-    title: 'Manners and Etiquette Every Pilgrim Should Know',
-    excerpt: 'What is expected of you in the Haramain, explained simply.',
+    heading: 'Etiquette Guide',
     image: '/images/blog-etiquette.jpg',
-    date: 'Jun 25, 2026',
-    readTime: '4 min read',
     href: '/blog/pilgrim-etiquette-guide',
   },
   {
     tag: 'Travel',
-    title: 'Visas, Flights & Hotels: A Complete Travel Guide',
-    excerpt: 'Everything you need to book and organize before you fly.',
+    heading: 'Travel Guide',
     image: '/images/blog-travel-guide.jpg',
-    date: 'Jun 21, 2026',
-    readTime: '9 min read',
     href: '/blog/hajj-umrah-travel-guide',
   },
   {
     tag: 'Preparation',
-    title: 'Physical and Spiritual Preparation for Hajj',
-    excerpt: 'How to prepare your body and heart before the journey begins.',
+    heading: 'Spiritual Prep Guide',
     image: '/images/blog-spiritual-prep.jpg',
-    date: 'Jun 18, 2026',
-    readTime: '6 min read',
     href: '/blog/physical-spiritual-preparation',
   },
 ]
 
-export default function LatestBlogs() {
+export default function ExploreTopics() {
   const scrollerRef = useRef<HTMLDivElement>(null)
 
   const scrollByCard = (direction: 'left' | 'right') => {
@@ -115,19 +85,19 @@ export default function LatestBlogs() {
   }
 
   return (
-    <section className="bg-[#F8F7F3] py-16 sm:py-20">
+    <section className="bg-background py-4 lg:py-8">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto mb-10 max-w-3xl text-center">
           <span className="badge">Latest Blogs</span>
 
-          <h2 className="mt-5 font-serif text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl">
-            Discover Knowledge for Your Journey
+          <h2 className="mt-5 text-3xl sm:text-4xl md:text-5xl">
+            Knowledge for Every Step of Your Journey
           </h2>
 
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-secondary sm:text-base">
-            Fresh guides and articles, carefully written from authentic Islamic sources for Hajj,
-            Umrah, and travel preparation.
+          <p className="mx-auto mt-4 max-w-xl text-sm sm:text-base">
+            Authentic guides for Hajj, Umrah, and everything in between — written to help you
+            prepare with clarity and confidence.
           </p>
         </div>
 
@@ -137,7 +107,7 @@ export default function LatestBlogs() {
             type="button"
             aria-label="Previous posts"
             onClick={() => scrollByCard('left')}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white text-primary transition hover:border-brand hover:text-brand"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card text-primary backdrop-blur-md transition duration-200 hover:border-brand hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
           >
             ‹
           </button>
@@ -146,7 +116,7 @@ export default function LatestBlogs() {
             type="button"
             aria-label="Next posts"
             onClick={() => scrollByCard('right')}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white text-primary transition hover:border-brand hover:text-brand"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card text-primary backdrop-blur-md transition duration-200 hover:border-brand hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
           >
             ›
           </button>
@@ -157,20 +127,20 @@ export default function LatestBlogs() {
           ref={scrollerRef}
           className="scrollbar-none flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-3"
         >
-          {posts.map((post) => (
+          {posts.map((post, index) => (
             <Link
-              key={post.href}
+              key={`${post.href}-${index}`}
               href={post.href}
               data-blog-card
-              className="group flex w-[82%] shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:w-[46%] lg:w-[calc(25%-15px)]"
+              className="group flex w-[82%] shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm backdrop-blur-md transition-all duration-200 hover:-translate-y-1 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 sm:w-[46%] lg:w-[calc(25%-15px)]"
             >
-              <div className="relative h-44 w-full overflow-hidden">
+              <div className="relative h-40 w-full overflow-hidden sm:h-44 lg:h-48">
                 <Image
                   src={post.image}
-                  alt={post.title}
+                  alt={post.heading}
                   fill
                   sizes="(min-width:1024px) 25vw, (min-width:640px) 46vw, 82vw"
-                  className="object-cover transition duration-500 group-hover:scale-105"
+                  className="object-cover transition duration-200 group-hover:scale-105"
                 />
 
                 <span className="absolute left-4 top-4 rounded-full bg-brand px-3 py-1 text-[11px] font-semibold text-white">
@@ -178,24 +148,20 @@ export default function LatestBlogs() {
                 </span>
               </div>
 
-              <div className="flex flex-1 flex-col p-5">
-                <h3 className="line-clamp-2 text-sm font-semibold leading-snug text-primary">
-                  {post.title}
+              <div className="flex flex-col p-4 pb-5 sm:p-5 sm:pb-6">
+                <h3 className="text-base font-semibold leading-snug text-primary">
+                  {post.heading}
                 </h3>
 
-                <p className="mt-3 line-clamp-2 flex-1 text-xs leading-relaxed text-secondary">
-                  {post.excerpt}
-                </p>
-
-                <div className="mt-5 flex items-center justify-between border-t border-border pt-3">
-                  <span className="text-[11px] font-medium text-light">
-                    {post.date} · {post.readTime}
-                  </span>
-
-                  <span className="text-sm font-semibold text-brand transition group-hover:translate-x-1">
+                <span className="mt-3 inline-flex w-fit items-center gap-1.5 rounded-full bg-brand-light px-4 py-2 text-xs font-semibold text-brand transition-colors duration-200 group-hover:bg-brand group-hover:text-white">
+                  Read Guide
+                  <span
+                    aria-hidden="true"
+                    className="transition-transform duration-200 group-hover:translate-x-0.5"
+                  >
                     →
                   </span>
-                </div>
+                </span>
               </div>
             </Link>
           ))}

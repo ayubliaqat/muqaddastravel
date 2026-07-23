@@ -1,21 +1,14 @@
-import { AnnouncementBar } from '@/components/layout/AnnouncementBar'
-
+import { FeaturedArticles } from '@/components/Home/Blogs'
+import { FeatureHighlights } from '@/components/Home/FeatureHighlights'
 import { HomeHero } from '@/components/Home/HomeHero'
-import ExploreTopics from '@/components/Home/ExploreTopics'
-import { TrustHighlights } from '@/components/Home/TrustHighlights'
-import { PopularGuides } from '@/components/Home/LatestArticles'
-import { JourneyCTA } from '@/components/Home/JourneyCTA'
-import { CategoryGrid } from '@/components/Home/PopularGuides'
-import TrustBanner from '@/components/Home/TrustBanner'
+import { WhyChooseUs } from '@/components/Home/WhyChooseUs'
 export default function Home() {
   return (
     <>
       <HomeHero />
-      <CategoryGrid />
-      <TrustBanner />
-      <ExploreTopics />
-
-      <JourneyCTA />
+      <FeatureHighlights />
+      <FeaturedArticles />
+      <WhyChooseUs />
     </>
   )
 }

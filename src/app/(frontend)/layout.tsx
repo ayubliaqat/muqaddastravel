@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Cormorant_Garamond, Inter } from 'next/font/google'
-
+import { Manrope, Inter } from 'next/font/google'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { AnnouncementBar } from '@/components/layout/AnnouncementBar'
@@ -10,7 +9,7 @@ import './styles.css'
 /* Fonts */
 /* -------------------------------------------------------------------------- */
 
-const heading = Cormorant_Garamond({
+const heading = Manrope({
   variable: '--font-heading',
   subsets: ['latin'],
   weight: ['500', '600', '700'],

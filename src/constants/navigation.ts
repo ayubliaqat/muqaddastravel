@@ -123,7 +123,7 @@ export const footerLegalNav: NavItem[] = [
   },
   {
     label: 'Terms & Conditions',
-    href: '/terms-and-conditions',
+    href: '/terms',
   },
   {
     label: 'Disclaimer',

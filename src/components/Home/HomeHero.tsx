@@ -1,103 +1,131 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { BookOpen, ClipboardList, ShieldCheck, Users } from 'lucide-react'
+import { VerseHighlightCard } from './VerseHighlightCard'
 
 const trustPoints = [
-  { icon: '🛡️', label: 'Authentic & Reliable Content' },
-  { icon: '📄', label: 'Step-by-Step Guides' },
-  { icon: '📋', label: 'Practical Tips & Checklists' },
-  { icon: '🤝', label: 'For First Time & Returning Pilgrims' },
+  {
+    icon: BookOpen,
+    label: "Qur'an & Sunnah Based",
+  },
+  {
+    icon: Users,
+    label: 'Scholar Reviewed',
+  },
+  {
+    icon: ClipboardList,
+    label: 'Step by Step Guidance',
+  },
+  {
+    icon: ShieldCheck,
+    label: '100% Free For Everyone',
+  },
 ]
 
 export function HomeHero() {
   return (
-    <section className="relative flex min-h-[80vh] w-full items-center overflow-hidden py-10 sm:py-14 md:min-h-[90vh] md:py-16">
+    <section className="relative flex min-h-[72vh] items-center overflow-hidden py-6 lg:min-h-[78vh] lg:py-10">
+      {/* Hero Background */}
       <Image
-        src="/images/hero-masjid-al-haram.png"
-        alt="Pilgrims performing tawaf around the Kaaba at Masjid al-Haram"
+        src="/images/masjid-al-haram.png"
+        alt="Pilgrims performing Tawaf around the Kaaba"
         fill
         priority
         sizes="100vw"
         className="object-cover object-center"
       />
 
-      {/* Background Overlay */}
+      {/* Overlay: full-coverage on mobile (text spans full width there),
+          left-weighted on lg+ where text is constrained to max-w-3xl */}
       <div
-        className="pointer-events-none absolute inset-0"
+        className="absolute inset-0 bg-white/85 sm:bg-white/75 lg:bg-transparent"
         style={{
-          background:
-            'linear-gradient(to right, var(--background) 0%, var(--background) 35%, rgba(252,252,249,.94) 58%, rgba(252,252,249,.45) 82%, transparent 100%)',
+          backgroundImage:
+            'linear-gradient(to right, rgba(255,255,255,.82) 0%, rgba(255,255,255,.48) 35%, rgba(255,255,255,.15) 58%, transparent 75%)',
         }}
       />
 
-      {/* Islamic Pattern */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: "url('/images/islamic-pattern.svg')",
-          backgroundRepeat: 'repeat',
-          backgroundSize: '260px',
-        }}
-      />
-
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12 xl:px-16">
-        <div className="max-w-2xl">
-          {/* Badge */}
-          <span className="badge">
-            <span aria-hidden="true"></span>
-            Your Journey. Our Guidance. Allah&apos;s Blessing.
-          </span>
-
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-4 lg:px-6 xl:px-12">
+        <div className="max-w-full lg:max-w-3xl">
           {/* Heading */}
-          <h1 className="mt-6 max-w-xl text-3xl font-bold leading-tight tracking-tight text-primary sm:text-4xl md:text-5xl lg:text-6xl">
-            Guiding Your Journey <br />
-            to <span className="text-brand">Hajj &amp; Umrah</span>
+          <h1 className="mt-4 text-balance text-3xl font-bold leading-[1.15] tracking-tight text-primary sm:text-4xl sm:leading-[1.12] lg:text-3xl lg:leading-[1.1]">
+            Your Complete Guide to
+            <br />
+            <span className="text-brand">Hajj &amp; Umrah</span>
+            <br />
+            For the Journey of a Lifetime
           </h1>
 
           {/* Description */}
-          <p className="mt-6 max-w-lg text-base leading-relaxed text-secondary sm:text-lg">
-            Everything you need to know for a spiritually fulfilling and well-prepared journey to
-            the House of Allah.
+          <p className="mt-4 max-w-xl text-base leading-7 text-secondary sm:text-lg sm:leading-8">
+            Step-by-step guidance, authentic knowledge, and practical tools to help you prepare for
+            the journey of a lifetime with clarity, confidence, and peace of mind.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          {/* Buttons */}
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Link
-              href="#explore"
-              className="inline-flex items-center justify-center gap-2 rounded-brand bg-brand px-7 py-3.5 text-sm font-semibold text-white shadow-brand transition-all duration-200 hover:bg-brand-hover"
+              href="/guides"
+              className="inline-flex w-full items-center justify-center rounded-full bg-brand px-6 py-2.5 text-sm font-medium text-white shadow-md transition-all duration-300 hover:bg-brand-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 sm:w-auto"
             >
               Explore Guides
-              <span aria-hidden="true">→</span>
             </Link>
 
             <Link
-              href="#preparing"
-              className="inline-flex items-center justify-center gap-2 rounded-brand border border-border bg-white px-7 py-3.5 text-sm font-semibold text-primary transition-all duration-200 hover:border-brand/40 hover:text-brand"
+              href="/planning"
+              className="inline-flex w-full items-center justify-center rounded-full border border-border bg-white/90 px-6 py-2.5 text-sm font-medium text-primary backdrop-blur-md transition-all duration-300 hover:border-brand hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 sm:w-auto"
             >
-              Start Preparing
+              Start Planning
             </Link>
           </div>
 
-          {/* Trust Points */}
-          {/* Trust Points */}
-          <div className="mt-12 md:mt-16">
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-              {trustPoints.map((point) => (
-                <div
-                  key={point.label}
-                  className="group rounded-2xl border border-border/60 bg-white/70 p-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand/30 hover:shadow-lg"
-                >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-light text-xl transition-all duration-300 group-hover:bg-brand group-hover:scale-110">
-                    <span aria-hidden="true">{point.icon}</span>
-                  </div>
+          {/* Verse Highlight — inline on mobile/tablet, above the trust strip */}
+          <div className="mt-6 lg:hidden">
+            <VerseHighlightCard />
+          </div>
 
-                  <h3 className="mt-4 text-sm font-semibold leading-snug text-primary">
-                    {point.label}
-                  </h3>
-                </div>
-              ))}
+          {/* Trust Features */}
+          <div className="mt-9 sm:mt-11 lg:mt-14">
+            <div className="rounded-2xl border border-white/60 bg-white/80 p-1.5 shadow-lg backdrop-blur-xl">
+              <div className="grid grid-cols-2 gap-1.5 md:grid-cols-4">
+                {trustPoints.map((item, index) => {
+                  const Icon = item.icon
+
+                  return (
+                    <div
+                      key={item.label}
+                      className="relative flex items-center gap-2.5 rounded-xl px-3 py-3 transition-colors duration-300 hover:bg-brand-light/40"
+                    >
+                      {/* Short Divider */}
+                      {index !== trustPoints.length - 1 && (
+                        <span
+                          aria-hidden="true"
+                          className="absolute right-0 top-1/2 hidden h-7 w-px -translate-y-1/2 bg-border md:block"
+                        />
+                      )}
+
+                      <div
+                        aria-hidden="true"
+                        className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-brand-light text-brand"
+                      >
+                        <Icon size={14} strokeWidth={2} />
+                      </div>
+
+                      <h3 className="text-left text-[12px] font-medium leading-4 text-primary sm:text-[13px]">
+                        {item.label}
+                      </h3>
+                    </div>
+                  )
+                })}
+              </div>
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Verse Highlight — floating over the hero image, desktop only */}
+      <div className="absolute bottom-6 right-4 z-10 hidden lg:right-8 lg:block xl:right-12">
+        <VerseHighlightCard />
       </div>
     </section>
   )
