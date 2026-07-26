@@ -19,14 +19,18 @@
 
   /* Brand */
 
-  --brand: #1d6f63;
-  --brand-hover: #15584e;
+  --brand: #1E6B52;
+  --brand-hover: #154d39;
   --brand-light: #e9f6f2;
 
-  /* Accent */
+  /* Accent (Kaaba gold) */
 
-  --accent: #cba35c;
+  --accent: #C9A45A;
   --accent-light: #fbf5e8;
+
+  /* Kaaba black (kiswah cloth) */
+
+  --kaaba-black: #12181B;
 
   /* Gradient */
 
@@ -90,6 +94,8 @@
 
   --color-accent: var(--accent);
   --color-accent-light: var(--accent-light);
+
+  --color-kaaba-black: var(--kaaba-black);
 
   --color-border: var(--border);
   --color-divider: var(--divider);
@@ -296,9 +302,9 @@ select:focus {
 .text-gradient {
   background: linear-gradient(
     135deg,
-    #1d6f63 0%,
+    #1E6B52 0%,
     #3c9c8c 45%,
-    #7b8cff 100%
+    #C9A45A 100%
   );
 
   -webkit-background-clip: text;

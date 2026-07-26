@@ -1,58 +1,94 @@
+'use client'
+
 import { Sparkles } from 'lucide-react'
 
-const messages = [
-  { text: 'May Allah accept your worship and grant you a blessed journey.', lang: 'en' },
-  { text: 'لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ', lang: 'ar' },
+const announcements = [
+  {
+    text: '✨ Essential Guides for Hajj & Umrah Preparation 2026',
+    arabic: 'لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ',
+  },
+  {
+    text: '📖 Step-by-Step Rituals & Authentic Duas Available Now',
+    arabic: 'رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً',
+  },
+  {
+    text: '🕋 Comprehensive Ziyarat Resources for Makkah & Madinah',
+    arabic: 'السَّلَامُ عَلَيْكَ يَا رَسُولَ اللَّهِ',
+  },
 ]
+
+const marqueeItems = [...announcements, ...announcements, ...announcements]
 
 export function AnnouncementBar() {
   return (
-    <div className="relative overflow-hidden bg-brand py-2.5">
-      {/* Static text for screen readers — the animated track below is decorative/hidden from them */}
-      <p className="sr-only">May Allah accept your worship and grant you a blessed journey.</p>
+    <div
+      aria-label="Site announcement"
+      className="relative z-50 overflow-hidden border-b border-[#2A7D63] bg-[#1E6B52] text-white"
+    >
+      <p className="sr-only">
+        Essential Hajj and Umrah announcements and authentic Islamic reminders.
+      </p>
 
-      {/* Edge fade so text doesn't hard-cut at the container edges */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-brand to-transparent sm:w-24"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-brand to-transparent sm:w-24"
-      />
+      <div className="container py-2.5">
+        <div className="relative flex overflow-hidden">
+          {/* Fade Left */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-[#1E6B52] to-transparent"
+          />
 
-      <div aria-hidden="true" className="marquee-track flex w-max items-center">
-        {/* Render the sequence twice back-to-back so the -50% loop is seamless */}
-        {[0, 1].map((copyIndex) => (
-          <div key={copyIndex} className="flex items-center">
-            {messages.map((item, i) => (
-              <span
-                key={`${copyIndex}-${i}`}
-                className={`flex items-center gap-2 whitespace-nowrap px-4 text-sm font-medium sm:px-6 ${
-                  item.lang === 'ar' ? 'text-[#D4A954]' : 'text-white'
-                }`}
-                dir={item.lang === 'ar' ? 'rtl' : 'ltr'}
+          {/* Fade Right */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[#1E6B52] to-transparent"
+          />
+
+          {/* Marquee */}
+          <div className="marquee flex min-w-max shrink-0 items-center gap-12 whitespace-nowrap">
+            {marqueeItems.map((item, index) => (
+              <div
+                key={index}
+                className="inline-flex items-center gap-8 text-xs font-medium tracking-wide sm:text-sm"
               >
-                <Sparkles className="h-3.5 w-3.5 shrink-0 text-[#D4A954]" strokeWidth={2} />
-                {item.text}
-              </span>
+                <span className="flex items-center gap-2 text-white/90 transition-colors duration-300 hover:text-white">
+                  <Sparkles className="h-[18px] w-[18px] shrink-0 text-amber-300" strokeWidth={2} />
+
+                  <span>{item.text}</span>
+                </span>
+
+                <span dir="rtl" className="font-heading text-sm tracking-normal text-amber-300/90">
+                  {item.arabic}
+                </span>
+
+                <span aria-hidden="true" className="select-none text-white/30">
+                  •
+                </span>
+              </div>
             ))}
-            <span className="mx-2 h-4 w-px shrink-0 bg-white/20 sm:mx-4" role="presentation" />
           </div>
-        ))}
+        </div>
       </div>
 
-      <style>{`
-        .marquee-track {
-          animation: marquee-scroll 28s linear infinite;
+      <style jsx>{`
+        .marquee {
+          animation: marquee 50s linear infinite;
+          will-change: transform;
         }
-        @keyframes marquee-scroll {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
+
+        @keyframes marquee {
+          from {
+            transform: translateX(0);
+          }
+
+          to {
+            transform: translateX(-33.333%);
+          }
         }
+
         @media (prefers-reduced-motion: reduce) {
-          .marquee-track {
+          .marquee {
             animation: none;
+            transform: none;
           }
         }
       `}</style>

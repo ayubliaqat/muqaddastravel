@@ -32,17 +32,6 @@ export function Footer() {
               Your trusted companion for Hajj & Umrah. Authentic guides, practical tips, and
               inspiring content.
             </p>
-
-            <div className="mt-5 flex items-center gap-2">
-              {['f', '◎', '▶', '𝕏', '♪'].map((icon) => (
-                <span
-                  key={icon}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-sm text-secondary transition hover:border-brand hover:bg-brand-light hover:text-brand"
-                >
-                  {icon}
-                </span>
-              ))}
-            </div>
           </div>
 
           {/* Quick Links */}

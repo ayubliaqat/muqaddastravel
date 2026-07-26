@@ -193,7 +193,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-GB" suppressHydrationWarning className={`${heading.variable} ${body.variable}`}>
-      <body className="min-h-screen bg-background font-body text-primary antialiased">
+      <body className="min-h-screen font-body text-primary antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
