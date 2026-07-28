@@ -5,7 +5,7 @@ import { mainNav } from '@/constants/navigation'
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-white">
+    <header className="sticky top-0 z-50 border-b border-accent/30 bg-white">
       <div className="container-custom flex h-[var(--header-height)] items-center justify-between gap-4">
         {/* Logo */}
         <div className="flex shrink-0 items-center">
