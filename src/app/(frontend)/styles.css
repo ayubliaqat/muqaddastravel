@@ -2,7 +2,7 @@
 
 :root {
   /* -------------------------------------------------------------------------- */
-  /* Modern Hajj & Umrah Design System                                          */
+  /* Modern Hajj & Umrah Design System                                        */
   /* -------------------------------------------------------------------------- */
 
   /* Base */
@@ -14,8 +14,8 @@
   /* Text */
 
   --text-primary: #1d2939;
-  --text-secondary: #667085;
-  --text-light: #98a2b3;
+  --text-secondary: #475467;
+  --text-light: #667085;
 
   /* Brand */
 
@@ -40,7 +40,7 @@
 
   /* UI */
 
-  --border: rgba(29, 111, 99, 0.08);
+  --border: rgba(29, 111, 99, 0.12);
   --divider: rgba(29, 41, 57, 0.06);
 
   --success: #16a34a;
@@ -130,7 +130,9 @@
 }
 
 html {
+  color-scheme: light;
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -179,7 +181,9 @@ img {
 }
 
 a {
-  transition: .25s;
+  
+  text-decoration: none;
+  transition: var(--transition);
 }
 
 button,
@@ -203,7 +207,6 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--text-primary);
   font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.08;
@@ -227,7 +230,8 @@ select {
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   backdrop-filter: blur(14px);
-  transition: .25s;
+  transition: var(--transition);
+  color: var(--text-primary);
 }
 
 input:focus,
@@ -288,7 +292,7 @@ select:focus {
 
   box-shadow: var(--shadow-sm);
 
-  transition: .3s ease;
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
 }
 
 .card:hover {
@@ -346,4 +350,19 @@ select:focus {
 
 .rounded-brand {
   border-radius: var(--radius-xl);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

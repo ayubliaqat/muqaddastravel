@@ -11,7 +11,7 @@ const features = [
     icon: (
       <svg
         viewBox="0 0 24 24"
-        className="h-6 w-6 drop-shadow-md"
+        className="h-6 w-6 drop-shadow-sm transition-transform duration-300 group-hover:scale-105"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -74,7 +74,7 @@ const features = [
     icon: (
       <svg
         viewBox="0 0 24 24"
-        className="h-6 w-6 drop-shadow-md"
+        className="h-6 w-6 drop-shadow-sm transition-transform duration-300 group-hover:scale-105"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -136,7 +136,7 @@ const features = [
     icon: (
       <svg
         viewBox="0 0 24 24"
-        className="h-6 w-6 drop-shadow-md"
+        className="h-6 w-6 drop-shadow-sm transition-transform duration-300 group-hover:scale-105"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -185,7 +185,7 @@ const features = [
     icon: (
       <svg
         viewBox="0 0 24 24"
-        className="h-6 w-6 drop-shadow-md"
+        className="h-6 w-6 drop-shadow-sm transition-transform duration-300 group-hover:scale-105"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -216,7 +216,7 @@ const features = [
     icon: (
       <svg
         viewBox="0 0 24 24"
-        className="h-6 w-6 drop-shadow-md"
+        className="h-6 w-6 drop-shadow-sm transition-transform duration-300 group-hover:scale-105"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -250,7 +250,7 @@ const features = [
     icon: (
       <svg
         viewBox="0 0 24 24"
-        className="h-6 w-6 drop-shadow-md"
+        className="h-6 w-6 drop-shadow-sm transition-transform duration-300 group-hover:scale-105"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -284,7 +284,7 @@ const features = [
     icon: (
       <svg
         viewBox="0 0 24 24"
-        className="h-6 w-6 drop-shadow-md"
+        className="h-6 w-6 drop-shadow-sm transition-transform duration-300 group-hover:scale-105"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -334,6 +334,8 @@ export function FeatureHighlights() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    if (window.innerWidth < 1024) return
+
     const sectionEl = sectionRef.current
     const containerEl = scrollContainerRef.current
     if (!sectionEl || !containerEl) return
@@ -342,22 +344,17 @@ export function FeatureHighlights() {
 
     const handleWheel = (e: WheelEvent) => {
       const rect = sectionEl.getBoundingClientRect()
-
-      // Check if section occupies or crosses the viewport view actively
       const isVisible = rect.top <= 0 && rect.bottom >= window.innerHeight
-
       if (!isVisible) return
 
       const { scrollTop, scrollHeight, clientHeight } = containerEl
       const isScrollable = scrollHeight > clientHeight
-
       if (!isScrollable) return
 
       const deltaY = e.deltaY
       const atBottom = scrollTop + clientHeight >= scrollHeight - 2
       const atTop = scrollTop <= 0
 
-      // If scrolling down and haven't reached the bottom, or scrolling up and haven't reached the top
       if ((deltaY > 0 && !atBottom) || (deltaY < 0 && !atTop)) {
         e.preventDefault()
         containerEl.scrollTop += deltaY
@@ -371,12 +368,10 @@ export function FeatureHighlights() {
     const handleTouchMove = (e: TouchEvent) => {
       const rect = sectionEl.getBoundingClientRect()
       const isVisible = rect.top <= 0 && rect.bottom >= window.innerHeight
-
       if (!isVisible) return
 
       const { scrollTop, scrollHeight, clientHeight } = containerEl
       const isScrollable = scrollHeight > clientHeight
-
       if (!isScrollable) return
 
       const currentY = e.touches[0].clientY
@@ -395,12 +390,10 @@ export function FeatureHighlights() {
     const handleKeyDown = (e: KeyboardEvent) => {
       const rect = sectionEl.getBoundingClientRect()
       const isVisible = rect.top <= 0 && rect.bottom >= window.innerHeight
-
       if (!isVisible) return
 
       const { scrollTop, scrollHeight, clientHeight } = containerEl
       const isScrollable = scrollHeight > clientHeight
-
       if (!isScrollable) return
 
       const step = 60
@@ -441,13 +434,14 @@ export function FeatureHighlights() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Heading & Description */}
         <div className="mx-auto max-w-2xl text-center mb-10 sm:mb-12">
-          <span className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">
+          <span className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3 ring-1 ring-accent/20">
             Explore Features
           </span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-accent font-heading">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand font-heading">
             Your Complete Spiritual Companion
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-secondary leading-relaxed">
+          <div className="w-16 mx-auto mt-3 h-0.5 bg-accent/60 rounded-full" aria-hidden="true" />
+          <p className="mt-4 text-sm sm:text-base text-secondary leading-relaxed">
             Discover step-by-step rituals, interactive planning checklists, and essential guides
             tailored for your sacred pilgrimage.
           </p>
@@ -455,39 +449,39 @@ export function FeatureHighlights() {
 
         <div
           ref={scrollContainerRef}
-          className="max-h-[75vh] overflow-y-auto pr-1 overscroll-contain"
+          className="lg:max-h-[75vh] lg:overflow-y-auto lg:pr-1 lg:overscroll-contain"
         >
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 items-stretch">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 items-stretch">
             {visibleFeatures.map((feature) => (
               <div
                 key={feature.href}
-                className="group relative flex flex-col justify-between rounded-[24px] border border-border/60 bg-card p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md"
+                className="group relative flex flex-col justify-between rounded-[24px] border border-border/80 bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-md"
               >
                 <div
-                  className="absolute inset-x-0 top-0 h-1 rounded-t-[24px] bg-accent"
+                  className="absolute inset-x-0 top-0 h-1 rounded-t-[24px] bg-accent/70 transition-colors duration-300 group-hover:bg-accent"
                   aria-hidden="true"
                 />
 
                 <div>
                   <div
                     aria-hidden="true"
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand text-white shadow-sm ring-1 ring-accent/30 transition-transform duration-200 group-hover:scale-105"
+                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand text-white shadow-sm ring-2 ring-accent/20 transition-all duration-300 group-hover:shadow-[0_0_12px_rgba(203,163,92,0.35)] group-hover:ring-accent/50"
                   >
                     {feature.icon}
                   </div>
 
-                  <h3 className="mt-3.5 text-sm sm:text-base font-bold tracking-tight text-primary font-heading">
+                  <h3 className="mt-4 text-base font-bold tracking-tight text-primary font-heading">
                     {feature.title}
                   </h3>
-                  <p className="mt-1 text-xs leading-relaxed text-secondary line-clamp-2">
+                  <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-secondary line-clamp-2">
                     {feature.description}
                   </p>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-border/40">
+                <div className="mt-6 pt-4 border-t border-border/40">
                   <Link
                     href={feature.href}
-                    className="inline-flex w-full items-center justify-center rounded-full bg-accent px-4 py-2 text-xs font-semibold text-white shadow-sm transition-all duration-200 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                    className="inline-flex w-full items-center justify-center rounded-full bg-accent px-4 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-accent/90 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                   >
                     Explore Guide
                   </Link>
@@ -498,12 +492,12 @@ export function FeatureHighlights() {
         </div>
 
         {hasMore && (
-          <div className="mt-8 flex justify-center">
+          <div className="mt-10 flex justify-center">
             <button
               type="button"
               onClick={() => setExpanded((prev) => !prev)}
               aria-expanded={expanded}
-              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-semibold text-accent shadow-sm transition-all duration-200 hover:border-accent hover:bg-accent/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-5 py-2 text-xs sm:text-sm font-semibold text-accent shadow-sm transition-all duration-200 hover:border-accent hover:bg-accent/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
             >
               <span>{expanded ? 'Show Less' : 'View All Features'}</span>
               <span

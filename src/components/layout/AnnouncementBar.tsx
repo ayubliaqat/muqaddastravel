@@ -4,15 +4,15 @@ import { Sparkles } from 'lucide-react'
 
 const announcements = [
   {
-    text: '✨ Essential Guides for Hajj & Umrah Preparation 2026',
+    text: 'Essential Guides for Hajj & Umrah Preparation 2026',
     arabic: 'لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ',
   },
   {
-    text: '📖 Step-by-Step Rituals & Authentic Duas Available Now',
+    text: 'Step-by-Step Rituals & Authentic Duas Available Now',
     arabic: 'رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً',
   },
   {
-    text: '🕋 Comprehensive Ziyarat Resources for Makkah & Madinah',
+    text: 'Comprehensive Ziyarat Resources for Makkah & Madinah',
     arabic: 'السَّلَامُ عَلَيْكَ يَا رَسُولَ اللَّهِ',
   },
 ]
@@ -52,7 +52,6 @@ export function AnnouncementBar() {
               >
                 <span className="flex items-center gap-2 text-white/90 transition-colors duration-300 hover:text-white">
                   <Sparkles className="h-[18px] w-[18px] shrink-0 text-amber-300" strokeWidth={2} />
-
                   <span>{item.text}</span>
                 </span>
 

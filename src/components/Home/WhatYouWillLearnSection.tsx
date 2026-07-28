@@ -152,6 +152,11 @@ export function ModernStickyScrollGuide() {
                 Learn Every Step Before You Travel
               </h2>
 
+              <div
+                className="mt-3 h-0.5 w-16 bg-accent/60 rounded-full lg:mx-0"
+                aria-hidden="true"
+              />
+
               <p className="mt-4 text-base leading-7 text-secondary">
                 Everything is organized into simple navigation modules so you know exactly what to
                 explore for your pilgrimage.
@@ -242,21 +247,10 @@ export function ModernStickyScrollGuide() {
                       {/* Top Accent Line (Gold) */}
                       <div className="absolute inset-x-0 top-0 h-1 bg-accent" />
 
-                      {/* Module Badge & Category */}
-                      <div className="flex items-center justify-between">
-                        <span className="rounded-full bg-accent/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
-                          Module {String(index + 1).padStart(2, '0')}
-                        </span>
-
-                        <span className="text-[11px] font-medium uppercase tracking-wider text-secondary">
-                          Navigation
-                        </span>
-                      </div>
-
                       {/* Title */}
                       <h3
                         style={{ color: 'var(--brand)' }}
-                        className="mt-3 font-heading text-lg font-bold tracking-tight"
+                        className="font-heading text-lg font-bold tracking-tight"
                       >
                         {section.title}
                       </h3>

@@ -179,7 +179,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#0F6B43',
+  themeColor: '#1E6B52',
   colorScheme: 'light',
 }
 /* -------------------------------------------------------------------------- */
@@ -192,7 +192,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en-GB" suppressHydrationWarning className={`${heading.variable} ${body.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${heading.variable} ${body.variable}`}>
       <body className="min-h-screen font-body text-primary antialiased">
         <script
           type="application/ld+json"
@@ -244,7 +244,7 @@ export default function RootLayout({
                 url: site.url,
                 description: site.description,
 
-                inLanguage: 'en-GB',
+                inLanguage: 'en',
 
                 publisher: {
                   '@id': `${site.url}#organization`,
@@ -280,7 +280,7 @@ export default function RootLayout({
                   '@id': `${site.url}#organization`,
                 },
 
-                inLanguage: 'en-GB',
+                inLanguage: 'en',
               },
             ]),
           }}

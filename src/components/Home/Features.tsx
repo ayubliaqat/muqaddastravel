@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Sparkles, ArrowRight, Check } from 'lucide-react'
+import { Sparkles, ArrowRight } from 'lucide-react'
 
 const trustPoints = [
   {
@@ -79,16 +79,18 @@ export function Features() {
               Why Trust Our Pilgrimage Knowledge?
             </h2>
 
+            <div className="mt-3 h-0.5 w-16 bg-accent/60 rounded-full" aria-hidden="true" />
+
             <p className="mt-5 max-w-xl text-base leading-relaxed text-[#64748B]">
               Preparing for Hajj and Umrah requires accurate and clear guidance. We bring together
               authentic references, practical resources, and carefully structured guides to help
               pilgrims travel with confidence.
             </p>
 
-            {/* Trust Points - Clean Vertical List */}
-            <div className="mt-8 space-y-4">
+            {/* Trust Points - Standard Unordered List with Bullet Points */}
+            <ul className="mt-8 space-y-3.5 list-disc list-inside marker:text-accent">
               {trustPoints.map((item, index) => (
-                <motion.div
+                <motion.li
                   key={item.title}
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -97,24 +99,20 @@ export function Features() {
                     duration: 0.4,
                     delay: index * 0.1,
                   }}
-                  className="flex items-center gap-3.5"
+                  className="text-base font-bold text-[#1E293B]"
                 >
-                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#CBA35C]/15 text-[#CBA35C] shadow-sm">
-                    <Check className="h-4 w-4 stroke-[3]" />
-                  </div>
-
-                  <span className="text-base font-bold text-[#1E293B]">{item.title}</span>
-                </motion.div>
+                  <span className="ml-2">{item.title}</span>
+                </motion.li>
               ))}
-            </div>
+            </ul>
 
             {/* CTA */}
             <Link
               href="/guides"
-              className="mt-10 inline-flex items-center gap-2 rounded-full bg-[#0F6E56] px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#0F6E56]/20 transition hover:bg-[#0A4D3D] hover:scale-105"
+              className="mt-10 inline-flex items-center gap-2 rounded-full bg-accent px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-accent/20 transition hover:bg-brand hover:scale-105"
             >
               Explore Our Guides
-              <ArrowRight className="h-4 w-4 text-[#CBA35C]" />
+              <ArrowRight className="h-4 w-4 text-white" />
             </Link>
           </motion.div>
         </div>
