@@ -465,7 +465,7 @@ export function FeatureHighlights() {
                 <div>
                   <div
                     aria-hidden="true"
-                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand text-white shadow-sm ring-2 ring-accent/20 transition-all duration-300 group-hover:shadow-[0_0_12px_rgba(203,163,92,0.35)] group-hover:ring-accent/50"
+                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-white shadow-sm ring-2 ring-accent/20 transition-all duration-300 group-hover:shadow-[0_0_12px_rgba(203,163,92,0.35)] group-hover:ring-accent/50"
                   >
                     {feature.icon}
                   </div>

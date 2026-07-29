@@ -83,6 +83,8 @@
   --color-background: var(--background);
   --color-section: var(--section-background);
   --color-card: var(--card);
+   --color-kiswah: #12181B;
+  --color-kiswah-deep: #2C1601;
 
   --color-primary: var(--text-primary);
   --color-secondary: var(--text-secondary);
@@ -213,10 +215,10 @@ h6 {
   letter-spacing: -.03em;
 }
 
-p {
+/* p {
   color: var(--text-secondary);
   line-height: 1.8;
-}
+} */
 
 /* -------------------------------------------------------------------------- */
 /* Forms */
