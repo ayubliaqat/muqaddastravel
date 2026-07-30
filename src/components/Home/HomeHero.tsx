@@ -77,7 +77,7 @@ export function HomeHero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative flex items-center overflow-hidden bg-background py-12 sm:py-16 sm:min-h-[64vh] lg:min-h-[70vh] lg:py-20 border-b border-accent/20"
+      className="relative flex items-center overflow-hidden bg-white pb-8 pt-6 sm:pb-6 sm:pt-8 sm:min-h-[64vh] lg:min-h-[70vh] lg:pb-12 lg:pt-10 border-b border-accent/20"
     >
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-brand/5 blur-3xl" />
@@ -137,12 +137,13 @@ export function HomeHero() {
           </div>
 
           {/* Right Column */}
+          {/* Right Column */}
           <div className="relative flex flex-col items-center lg:col-span-6">
             <div
               className="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none"
               aria-hidden="true"
             >
-              <div className="motion-safe:animate-pulse h-72 w-72 rounded-full bg-gradient-to-tr from-accent/20 to-brand/10 blur-3xl sm:h-80 sm:w-80" />
+              <div className="motion-safe:[animation:pulse_5s_ease-in-out_infinite] h-72 w-72 rounded-full bg-gradient-to-tr from-accent/20 to-brand/10 blur-3xl sm:h-80 sm:w-80" />
             </div>
 
             <div className="relative h-72 w-72 sm:h-96 sm:w-96 lg:h-[420px] lg:w-[420px]">
@@ -155,27 +156,26 @@ export function HomeHero() {
                 aria-hidden="true"
               />
               <div
-                className="motion-safe:[animation:spin_70s_linear_infinite] absolute inset-4 rounded-full border border-dashed border-accent/40"
+                className="motion-safe:[animation:spin_120s_linear_infinite] absolute inset-4 rounded-full border border-dashed border-accent/40"
                 aria-hidden="true"
               />
 
               {/* Verse card */}
-              <div className="absolute left-1/2 top-1/2 w-44 -translate-x-1/2 -translate-y-1/2 sm:w-52 lg:w-60 motion-safe:animate-[float_6s_ease-in-out_infinite]">
-                <div className="relative overflow-hidden rounded-tl-[24px] rounded-br-[24px] rounded-tr-md rounded-bl-md border border-accent/40 bg-brand p-4 text-center shadow-[0_16px_40px_rgba(30,107,82,0.3)] sm:p-5">
-                  <div className="absolute inset-x-0 top-0 h-1 bg-accent" aria-hidden="true" />
+              <div className="absolute left-1/2 top-1/2 w-44 -translate-x-1/2 -translate-y-1/2 sm:w-52 lg:w-60 motion-safe:[animation:float_9s_ease-in-out_infinite]">
+                <div className="relative overflow-hidden rounded-tl-[24px] rounded-br-[24px] rounded-tr-md rounded-bl-md border border-brand/30 bg-accent p-4 text-center shadow-[0_16px_40px_rgba(201,162,39,0.3)] sm:p-5">
+                  <div className="absolute inset-x-0 top-0 h-1 bg-brand" aria-hidden="true" />
                   <p
                     dir="rtl"
                     lang="ar"
-                    style={{ color: '#ffffff' }}
-                    className="font-heading text-base font-bold leading-[1.6] sm:text-lg lg:text-xl drop-shadow-xs"
+                    className="font-heading text-base font-bold leading-[1.6] text-primary sm:text-lg lg:text-xl"
                   >
                     وَأَتِمُّوا الْحَجَّ وَالْعُمْرَةَ لِلَّهِ
                   </p>
-                  <div className="mx-auto my-2.5 h-px w-10 bg-accent/70" aria-hidden="true" />
-                  <span className="text-[9px] font-medium uppercase tracking-wider text-accent sm:text-[10px]">
+                  <div className="mx-auto my-2.5 h-px w-10 bg-brand/70" aria-hidden="true" />
+                  <span className="text-[9px] font-medium uppercase tracking-wider text-brand sm:text-[10px]">
                     Al-Baqarah • 2:196
                   </span>
-                  <div className="absolute inset-x-0 bottom-0 h-1 bg-accent" aria-hidden="true" />
+                  <div className="absolute inset-x-0 bottom-0 h-1 bg-brand" aria-hidden="true" />
                 </div>
               </div>
 
@@ -184,9 +184,9 @@ export function HomeHero() {
                   <li
                     key={item.title}
                     style={{ ...item.pos, transform: 'translate(-50%, -50%)' }}
-                    className="absolute flex w-24 flex-col items-center rounded-xl border border-accent/30 bg-white/95 p-2.5 text-center shadow-[0_10px_25px_rgba(201,162,39,0.15)] backdrop-blur-md transition-transform duration-300 hover:-translate-y-[calc(50%+4px)] sm:w-28 lg:w-32 lg:p-3"
+                    className="absolute flex w-24 flex-col items-center rounded-xl border border-accent/30 bg-brand p-2.5 text-center shadow-[0_10px_25px_rgba(201,162,39,0.15)] backdrop-blur-md transition-transform duration-700 ease-out hover:-translate-y-[calc(50%+4px)] sm:w-28 lg:w-32 lg:p-3"
                   >
-                    <div className="mb-1.5 flex h-7 w-7 items-center justify-center rounded-full bg-accent/15 text-brand sm:h-8 sm:w-8">
+                    <div className="mb-1.5 flex h-7 w-7 items-center justify-center rounded-full bg-white/15 text-white sm:h-8 sm:w-8">
                       <svg
                         viewBox="0 0 24 24"
                         fill="none"
@@ -196,10 +196,10 @@ export function HomeHero() {
                         {item.icon}
                       </svg>
                     </div>
-                    <h3 className="text-[10px] font-bold text-brand sm:text-[11px] leading-tight">
+                    <h3 className="text-[10px] font-bold text-white sm:text-[11px] leading-tight">
                       {item.title}
                     </h3>
-                    <p className="text-[8px] leading-tight text-secondary sm:text-[9px] mt-0.5">
+                    <p className="text-[8px] leading-tight text-white/80 sm:text-[9px] mt-0.5">
                       {item.desc}
                     </p>
                   </li>
